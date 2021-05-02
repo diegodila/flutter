@@ -37,9 +37,243 @@ custo é mais barato (1 time só)
 mas mesmo assim empresar preferem ter 2 times, em startup geralmente vai para uma solução hibrida
 
 ------------------------------------------------------
-A02
+A02-020521
 no dart temos um main por projeto
+java o main é uma metodo estatico e recebe parametro 
+no dart nos metodos nao precisamos declarar o retorno
+e o underlaine é o que significa se o metodo é privado ou não 
+2 notificadores de acesso no dart publico e privado 
+
+void main() {
+    for (int i = 0; o < 5; i++){
+        printInteiro(i);
+    }
+}
+printInteiro(int numero){
+    print('O numero é:$numero.');
+}
+
+String nome = 'Valor';
+var n2 = 'v1';
+var n3 - 10;
+dynamic nd = 'String'
+
+dynamic aceita qualquer tipo, permite ficar atribuindo varios tipos de valores, ja o var não
+
+é mais comum ter o var 
+em java sempre temos que tipar as variaveis
+
+void main() {
+    int salario; // em java não conseguiriamos pois, teriamos q atribuir um valor 
+    if(salario == null) {
+        print('É nulo');
+    } else {
+        print('Não é nulo');
+    }
+}
+
+10.[conseguimos acessos propriedades e metodos, pq o 10 é um obj]
+''. string tambem 
+tudo é tratado como obj no dart 
+
+varTypes 
+numbers 
+strings
+booleans 
+lists
+sets
+maps
+runes(usado em expressões  Unicode)
+Symbols (usado para buscar classes ou bibliotecas por strings)(cuidado por gera uma grande carga no apps)
+
+// String to int
+var valorInteiro = int.parse('1');var variavel = 'Um valor qualquer';
+
+// String to double
+var valorDecimal = double.parse('1.1');var s1 = 'Concatenação '
+'de springs '
+"funciona em várias linhas .";
+
+// Int to String
+String stringNumero = 1.toString();var s2 = 'A concatenção com + ' + 'funciona
+dessa forma tb, ${variavel}.';
+
+// Double do String converte e fixa casas decimais 
+String numeroPI = 3.14159.toStringAsFixed(3);
+
+String s1 = 'S1';
+String s2 = 'S2';
+String s3 = 'S3.1'
+            's3.2'
+            's3.3'; //adotar sempre aspas simples ate o final
+
+print(s3);
+
+String s4 = s1 + '';
+String s4 = 'Valor total: $s1 $s2 $s3'
+print(s4);
+
+String s4 = s1 + ' ' + s2; // não usar
+
+//podemos fazer uma operação dentro das chaves
+String s4 = 'Valor total: $s1 $s2 $s3 ${3 + 10}'
+
+String s5 = ''' Flavio 
+                Moreni
+                Fiap
+                2021
+                flutter'''; //imprime literal 
+print(s5)
+
+Lists 
+
+// declarando a lista
+
+// Adicionando o conteudo de 1 no final de 2
+var list2 = [0,10,11, ...?list]; // ...? palavra reservada, para copiar os valores 
+
+// Adicionando o conteúdo de 2 no início de 3
+var list3 = [...?list2, 20, 21, 22]; // copia da lista 2, com outra parcela que inputamos 
+
+
+// Adicionando mais um valor em 3
+list3.add(25); //metodo add que temos para adicionar o elemento
+
+bool permiteUva = true;
+
+var lista = [
+'Banana',
+'Maça' ,
+'Pera',
+if(permiteUva) 'Uva'
+]; // adicionando uma condição dentro da lista. usando na declaração da lista, para ter o valor
+
+FUNÇÕES 
+
+// retorno explícito, definindo o retorno bool
+bool ehImpar(int numero) {
+    return numero.isOdd;
+}
+// retorno implícito
+ehOdd(int numero) {
+    return numero.isOdd;
+}
+
+ARROW FUNCTIONS 
+// retorno explícito
+bool numeroImpar(int numero) => numero.isOdd;
+
+// retorno implícito
+numImpart(int numero) => numero.isOdd;
+
+quando o retorno é uma chave só. Usando tambem em kotlin
+
+PARAMETROS OPCIONAIS 
+
+//forma comum em java, sendo o parametro opcional
+printInteger(int aNumber) {
+    print(aNumber);
+}
+printInteger(int a, int b) //sobrecarga de metodo e dart nao tem sobrecarga de metodo, ele deixa os parametros opcionais 
+
+//dart permite um metodo com varios parametros opcionais
+//sempre definimos entre chaves quais os parametros opcionais
+//
+printInteger(int a, {int b}) {
+    print('$a $b');
+}
+
+main() {
+    int number = 42;
+    //printInteger(aNumber: number);
+    //printInteger();
+    //printIntenger(number, 10); // Erro de compilação
+    printIntenger(number, b:2); // Passando o segundo parametro
+    printInteger(a:2,b:3);//passando os parametros opcionais 
+    printIntenger()//nenhum parametro opcional 
+}
+
+
+label({String borda, String background}) {
+    print($borda $background);
+}
+
+main() {
+    int number = 42;
+    //printInteger(aNumber: number);
+    //printInteger();
+    printIntenger(number); // Erro de compilação
+}
+
+//Segunda forma de passar parametros opcionais
+usamos chaves quando precisamos passar os parametros dentro da chaves de forma a forçar que não há possibilidade de passar 1 parametro so 
+printNome(String primeiro,[String segundo, String sobrenome]) {
+    print('$primeiro $segundo $sobrenome');
+}
+
+main(){
+    printNome("Flavio");
+    printNome("Flavio", "Eduardo");
+    printNome("Flavio", "Eduardo", "Moreni");
+}
+//definindo um valor default para o parametro opcional para o valor não ficar nulo quando não passamos nada no valor
+
+printNome(String primeiro, {String segundo = 'Flutter'}) {
+    print($primeiro $segundo);
+}
+main() {
+    String nome = 'Flutter'
+    printNome('Flavio');
+}
+
+void main(){
+   var frutas = ['maça', 'banana', 'laranja'];
+   frutas.forEach((nome){
+     print(nome)
+   });
+}
+//função privada 
+_funcaotest(){
+
+}
+CLASSES 
+
+class Point {
+  int x, y;
+
+  
+//   // Sintaxe para setar x e y
+//   Point(this.x , this.y);
+//     this.x = x;
+//     this.y = y;
+// }
+ // Sintaxe para setar x e y e tambem podemos passar parametros opcionais
+  Point({this.x , this.y});
+  
+  // Named cosntructor, podemos ter um constructor diferente com o nome da classe
+  Point.fromJson(String conteudoJson){
+    //Parse;
+  }
+}
+
+void main() {
+  Point p = new Point();
+
+  Point p2 = new Point.fromJson("ahsdjnaksjd")
+}
+
+void main() {
+  var p1 = new Person(); // Erro de compilação
+  var p2 = Pessoa.fromJson("{valor: 'texto'}");
+}
+
+class Pessoa {
+  String nome;
+  Pessoa.fromJson(String jsonContent) {
+  print('executou o fromJson de Pessoa');
+}
 ------------------------------------------------------
+A03
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
