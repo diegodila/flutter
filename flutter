@@ -148,7 +148,7 @@ var lista = [
 if(permiteUva) 'Uva'
 ]; // adicionando uma condição dentro da lista. usando na declaração da lista, para ter o valor
 
-FUNÇÕES 
+FUNCTIONS
 
 // retorno explícito, definindo o retorno bool
 bool ehImpar(int numero) {
@@ -273,7 +273,251 @@ class Pessoa {
   print('executou o fromJson de Pessoa');
 }
 ------------------------------------------------------
-A03
+A03 StatelessWidget Widget MaterialApp Demais Widgets
+
+StatelessWidget widget sem estado (conteudo dele não sofre alteração) sem estado, stateless O
+statefull (muda o estado)
+stateless tem movimento porem não conseguimos carregar ele (load)
+stateless é tipo de widget 
+materialApp é um widget tambem
+no dart criamos um projeto flutter
+pag 7 pegar o cod
+
+lista de widget 
+cupertino sao elementos no padrao ios 
+flutter doc > widget catalog
+
+Card
+sempre importa o package:flutter/material.dart
+runApp() //fica dentro do main, e o runApp processa os widgets ou o flutter, passando como parametro a tela, ou a classe que tem a tela 
+
+class Myapp extends StatelessWidget // é uma classe que extend do full ou stateless 
+
+// criando uma tela 2 
+class Tela2 extends StatelessWidget // assim que começamos a criar a tela
+//quando extendemos da classe StatelessWidget somo forçados a escrever o metodo build 
+
+Widget build(BuildContext context) // BuildContext (classe)
+
+// classe que cria o App
+class MyApp extends StatelessWidget {
+  // Primeiro método a ser executado
+  @override
+  Widget build(BuildContext context) {
+  // Criando o Widget do Material App e um Texto Olá
+  return MaterialApp(home: Text("Hello, Fiap Flutter"),);
+  }
+}
+
+MaterialApp tem varios parametros, locale geo, routes
+MaterialApp é só um esqueleto, onde passamos o parametro home
+o home indica qual elemento visual que vai ser renderizado
+
+
+Criamos uma classe que vai renderizar a tela, ela extende do statelessWidget, temos que sobrescrever o metodo build, retornando um widget que no caso é o materialApp
+Stateless sempre tem o metodo build e ele retorna os elementos
+Text o primeiro elemento é umas string de dados, que é obrigatorio
+
+temos um catalogo de widget
+column não é um elemento visual, mas ajuda empilhar os elementos
+acessando  o Widget catalog
+
+Melhorando 
+
+return MaterialApp(
+  home: Card(
+    child: Text(
+      "Hello, Fiap Flutter",
+      textAlign: TextAlign.center, //TextAlign é uma constante
+      style: TextStyle(
+      fontSize: 40,
+      ),
+    ),
+  ),
+);
+
+passamos o parametro pro home colocamos null ate colocarmos algum card
+é importante definirmo o child do widget para informarmos um texto dentro do widget principal
+na hora que construimos o card precisamos passar qual elemento vai estar dentro do card, não conseguimos passar o Text diretamente para o Card, pois ele o parametro que temos para passar o elemento que vai dentro do Card é child: Text('Olá')
+a virgula é importante dentro do parametro para quando formatamos o codigo ele deixa um pouco mais organizado
+o child é singular, então só podemos ter um elemento dentro
+
+
+ListTile
+
+MaterialApp(
+      home: Card(
+        child: ListTile(
+          title: Text(
+            '9999 Super Street',
+            style: TextStyle(fontWeight: FontWeight.w500),
+          ),
+          subtitle: Text('Name City, EST 99999'),
+          leading: Icon(
+            Icons.restaurant_menu,
+            color: Colors.blue[500],
+          ),
+        ),
+      ),
+    );
+
+Listtile permite um espaço do lado esquerdo, (lading), permite um title e ele permite um subtitle, e um espaço  
+
+child: ListTile(
+  title: Text(
+    '9999 Super Street',
+    style: TextStyle(fontWeight: FontWeight.w500),
+    ),
+    subtitle: Text('Name City, EST 99999'),
+    leading: Icon(
+      Icons.restaurant_menu,
+        color: Colors.blue[500],
+        ),
+    ),
+
+//leading: parameter a esquerda do listtile
+//trailing: parameter a direita do listtile
+//title: 
+//subtitle: 
+podemos passar um texto para cada parametro do listtile
+leading: Icon(Icon.restaurant_menu, color: Colors.blue),
+title: Text('999 St domingues'),
+subtitle: Text("Vancouver, British Columbia, 99999"),
+trailing: Text("n4"),
+trailing: Icon(Icon.arrow_forward, color: Colors.redAccent),
+
+child: Column() //permite empilhar varios elementos
+o child recebe um unico elemento dentro do widget
+dentro do column podemos colocar dois Listtile
+dentro do column temos varios parametros e dentro desse parametro 
+temos o List<Widget> children = const <Widget>[]
+o children é um propriedade ou parametro que recebe uma lista de widgets
+se quisermos empilhar os card inverteriamos, ao invés de colocar os listTile
+
+para fazer o evelopamento do um card o listtile, podemos clicar com o botao direito e wrap e ele seta dentro column
+
+Widget cardRestaurant(String adress, String city, String phone){
+}
+class MyApp2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Card(
+        child: new CardRestaurant('999, st richards, 'Vancouveers, Bc, 99999', '55(11) 99999-44222')
+    );
+  }
+}
+
+Widget cardRestaurant(String adress, String city, String phone){
+   return Column(children: [
+            ListTile(
+              title: Text(
+                adress,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text(city),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+            ListTile(
+              title: Text(
+                phone,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text('Name City, EST 99999'),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+          ],
+        ),
+      );
+}
+
+class CardRestaurant extends StatelessWidget {
+  String adress,city, phone;
+
+  CardRestaurant(this.adress, this.city, this.phone);
+
+  Widget build(BuildContext context){
+    return return Column(children: [
+            ListTile(
+              title: Text(
+                adress,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text(city),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+            Divider(),
+            ListTile(
+              title: Text(
+                phone,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text('Name City, EST 99999'),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+          ],
+        ),
+      );
+  }
+}
+
+podemos tanto chamar um metodo como chamar uma classe como descrito acima, instaciamos o new para a nova classe ou chamamos o metodo que construimos para retornar o widget
+
+O widget divider é usado para colocar uma linha e dividir
+o column é uma lista de widget, ele permite colocar um listtile(), divider() 
+column vai aceitando qualquer widget
+sizedBox() é um elemento visual que envolve o Card(),
+
+class CardRestaurant extends StatelessWidget {
+  String adress,city, phone;
+
+  CardRestaurant(this.adress, this.city, this.phone);
+
+  Widget build(BuildContext context){
+    return SizedBox(
+      height: 210,
+      child: Card(
+        child: Column(children: [
+            ListTile(
+              title: Text(
+                adress,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text(city),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+            Divider(),
+            ListTile(
+              title: Text(
+                phone,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text('Name City, EST 99999'),
+              leading: Icon(
+                Icons.restaurant_menu,
+                color: Colors.blue[500],
+              ),
+            ),
+          ],
+        ),
+      )
+    );
+  }
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
