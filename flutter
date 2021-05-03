@@ -587,6 +587,151 @@ class CardRestaurant extends StatelessWidget {
 ------------------------------------------------------
 A04-030521
 
+MaterialApp 
+Scaffold // nao tem visual 
+container // não tem visual
+card 
+column 
+
+Scaffold 
+  implementa a estrutura de layout visual 
+  do design
+  permite organizar melhor os elementos visuais 
+
+
+Container é caixa para org melhor os elements, e podemos colocar um filho no container que no caso é o Card ListView é um dos elementos mais usados, no flutter é normal ter um elemento dentro do outro 
+21 linhas para fazer 3 textos como no exemplo abaixo 
+
+exemplo de codigo hadoken
+
+children: [
+                  Text(
+                    "Diego",
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                  Text(
+                    "José",
+                    style: TextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                  Text(
+                    "Pedro",
+                    style: TextStyle(
+                      color: Colors.greenAccent,
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                  Text(
+                    "Mateus",
+                    style: TextStyle(
+                      color: Colors.pinkAccent,
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
+              )
+
+Metodo vs Class 
+uma classe é um widget no flutter, criamos um widget que é o widget de texto, podemos criar uma classe dentro do mesmo arquivo no flutter 
+o metodo build toda vez que é chamado ele retorna o widget de texto
+
+class TextCustomized extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      "Mateus",
+      style: TextStyle(
+        color: Colors.pinkAccent,
+        fontSize: 30,
+        fontStyle: FontStyle.italic,
+      ),
+    );
+  }
+}
+
+//nesse caso precisamos fazer ele ser dinamico,
+
+class TextCustomized extends StatelessWidget {
+  String value;
+
+  TextCustomized(this.value);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      value,
+      style: TextStyle(
+        color: Colors.pinkAccent,
+        fontSize: 30,
+        fontStyle: FontStyle.italic,
+      ),
+    );
+  }
+}
+
+quando queremos mudar o valor, no flutter nao temos geters and seters 
+
+void setValue(String content){
+  value = content;
+}
+quando o elemento é stateLess uma vez renderizado ele não vai ser mais alterado, stateless estamos trabalhando com a memoria visual, 
+
+então umas das formas de refatorar o cod, é construindo uma classe que extende statelessWidget, podendo usar ele como um proprio widget do flutter como no cod abaixo 
+
+lass TextCustomized extends StatelessWidget {
+  String value;
+
+  TextCustomized(this.value);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      value,
+      style: TextStyle(
+        color: Colors.pinkAccent,
+        fontSize: 30,
+        fontStyle: FontStyle.italic,
+      ),
+    );
+  }
+}
+
+function(método)
+é uma outra forma de refatorar o cod
+então podemos criar um método dentro da classe Myapp(principal até o momento) 
+
+Widget textBox(String param) {
+    return Text(
+      param,
+      style: TextStyle(
+        color: Colors.deepOrangeAccent,
+        fontSize: 30,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.w100,
+      ),
+    );
+  }
+}
+
+então quando eu uso o método ou uma classe para refatorar o codigo. 
+QUANDO FALAMOS DE WIDGET NA CLASSE, TEMOS APENAS UM MÉTODO EM TODA A  CLASSE, O MÉTODO BUILD. Se quisermos ter mais métodos teriamos que criar outra classe, ou colocando mais parametros na construção daquele widget
+
+CLASSE x METODO QUANDO USAR????
+a classe é util para fazer reuso, pois conseguimos utilizar em varias telas. Então quando queremos usar uma tela (widget) em varios lugares do app, usamos uma classe
+
+o metodo serve só para usar dentro daquele escopo, até porque ele fica no escopo daquela determinada classe onde o método se encontra. Então quando temos uma tela, e queremos diminuir o cod, fazemos a refatoração ali, para um bloco de metodo para diminuir e organizar 
+
+podemos selecionar o Text e fazer o refactor, temos 3 tipos de extração, e extraimos o texto para um metodo, ou pra uma classe
+
 
 ------------------------------------------------------
 ------------------------------------------------------
