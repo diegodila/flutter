@@ -734,6 +734,86 @@ podemos selecionar o Text e fazer o refactor, temos 3 tipos de extração, e ext
 
 
 ------------------------------------------------------
+A04-030521
+
+o hotreload funciona quando eu salvo meu arquivo 
+
+crtl + s (hotreload)
+quando temos mudanças muito grandes o hotrelod não funciona
+o botao restart restarta a aplicação do zero,
+
+aprofundamento do Scaffold
+stateful Widget // mudança de patamar
+
+Componentes MaterialApp
+
+Scaffold implementa a estrutura de laoyout visual
+
+dentro do MaterialApp o elemento principal vai ser o Scaffold
+
+o esqueleto do Scaffold 
+
+Scaffold(
+        appBar: null,
+        body: null,
+        floatingActionButton: null,
+        drawer: null,
+        persistentFooterButtons: [],
+        bottomNavigationBar: null,
+        endDrawer: null,
+      ),
+
+os demais widgets são widgets de visualização do usuario
+existem duas maneiras de codar
+
+criando o metodo 
+Widget _appBar() {
+    return AppBar(
+      title: Text('Diego Scaffold'),
+    );
+  }
+
+ou usando atalho
+PARA PENSAR, QUANDO IMPORTAMOS UMA CLASSE, CARREGAMOS OS METODOS DELES SEM MESMO ESTAREM INSTACIADOS. IGUAL NO FLUTTER?
+
+FloatingActionButton
+no atributo onPressed aceita uma função como parametro
+e podemos fazer uma função anonima como abaixo 
+
+FloatingActionButton _floatingActionButton() {
+    return FloatingActionButton(
+      elevation: 10,
+      child: Icon(Icons.add),
+      onPressed: () {
+        print('_floatingActionButton');
+      },
+    );
+  }
+
+dentro do onpressed iremos programar coisas mais complexas 
+quando retornamos um array o retorno dele vira uma List de Widgets 
+
+List<Widget> _persistentFooterButtons() {
+    return [
+        RaisedButton(
+          elevation: 10.0,
+          color: Colors.green,
+          child: Icon(Icons.add),
+          onPressed: () {
+            print('+');
+          },
+        ),
+        RaisedButton(
+          elevation: 10.0,
+          color: Colors.red,
+          child: Icon(Icons.remove_circle),
+          onPressed: () {
+            print('+');
+          },
+        ),
+      ];
+  }
+
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
