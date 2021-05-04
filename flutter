@@ -276,7 +276,7 @@ class Pessoa {
 A03 StatelessWidget Widget MaterialApp Demais Widgets
 
 StatelessWidget widget sem estado (conteudo dele não sofre alteração) sem estado, stateless O
-statefull (muda o estado)
+stateful (muda o estado)
 stateless tem movimento porem não conseguimos carregar ele (load)
 stateless é tipo de widget 
 materialApp é um widget tambem
@@ -813,6 +813,114 @@ List<Widget> _persistentFooterButtons() {
         ),
       ];
   }
+
+para pensar: QUANDO IMPORTAMOS UMA CLASSE, PODEMOS UTILIZAR OS METODOS ESTATICOS DELA???
+
+
+currentIndex: 0, nos fala qual botão que está selecionado na barra de navegação
+items: [] os itens de opção da barra de navegação
+
+bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 1,
+          fixedColor: Colors.teal,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('home'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              title: Text('Search'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_box),
+              title: Text('Add'),
+            ),
+          ],
+        ),
+o currentIndex representa o array de itens, selecionado o atual
+
+eu não tenho eventos nos botões eu tenho eventos na minha barra de navegação como um todo, como descrito abaixo
+onTap é cara que recebe o click na barra de navegação 
+BottomNavigationBar(), eu sei o item que eu cliquei pelo parametro que é passado pelo value
+quando queremos navegar pelas telas podemos fazer uma condicional no onTap, ele aceita uma função 
+
+o ontap é executado quando eu toco o botão 
+o onpressed é quando eu toco e solto do botao
+
+
+ BottomNavigationBar(
+          currentIndex: 1,
+          fixedColor: Colors.teal,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('home'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              title: Text('Search'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_box),
+              title: Text('Add'),
+            ),
+          ],
+          onTap: (value) {
+            print('Botão clicado $value');
+          },
+        )
+
+para estudar o metodo drawer
+
+STATELESSWIDGET NAO ALTERA, NÃO MUDA O QUE FOI RENDERIZADO UMA VEZ, NÃO RECEBE MAIS ITENS
+
+STATEFUL COMPONENTES QUE POSSUEM ESTADO
+
+StatelessWidget flutter logo, fica ate o final da vida
+
+statefulwidget galeria de fotos (conforme eu tiro uma foto eu vou aumentando ou diminuindo)
+precisamos fazer com que ele se atualize conforme a ação do usuário
+instagram (quando puxamos pra baixo ele atualiza o history)
+
+como criar um statefulwidget?
+no statelessWidget (minhaclasse extends StatelessWidget e metodo build)
+
+no STATEFUL SEMPRE SÃO DUAS CLASSES PARA CRIAR ELE 
+a classe StatefulWidget e a State
+se tentarmos fazer na mão da pau 
+pq uma depende da outra 
+
+criamos a classe StatefulWidget e somos obrigados a criar o metodo createState(), só que esse metod ele vai retornar a classe State 
+
+a minha classe StatefulWidget RETORNA minha classe State
+eu uso a stateful, para instanciar a pagina, para fazer uma relação com ela 
+
+Meus elementos graficos eu codifico na classe State
+e ela tem um metodo build
+
+o ponto mais importante do StatefulWidget é metodo setState() {}, ele notifica o app que algum obj foi alterado, quando eu quero que algo mude na tela eu chamo o metodo setState()
+
+setState() é quando eu preciso mudar o estado
+PARA APRENDER:quando que colocamos uma função sem ()
+PARA APRENDER: metodos que retorno classe
+
+o statelessWidget não permite que mude a tela, sem estado (travado), renderizou uma vez, ele só sai ate sair da memória
+
+é melhor criar tudo como stateful? tem coisas que não precisamos alterar nunca, e usando o stateful estarei usando recurso que não vou utilizar, deixando o app um pouco mais parrudo
+
+void _incrementCounter() {
+    setState(() {
+      _counter++;
+      print("Contador $_counter");
+    });
+  }
+
+o setState notifica a tela dizendo que ela sofreu uma alteração e quando ele notifica, o metodo build é recarregado, dando então dinamismo a tela
+sendo o metodo build reexcutado, ele vai renderizando suavemente o metodo build, não dando pra perceber a mudança do conteudo da pagina
+
+o problema que podemos ter com estado, é executar o metodo build varias vezes, tendo ele que reconstruir varios componentes (Scaffold, AppBar, Column...)
+
 
 ------------------------------------------------------
 ------------------------------------------------------
