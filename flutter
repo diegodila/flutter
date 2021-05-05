@@ -928,7 +928,47 @@ A06-040521 LISTVIEW VSCODE
 nac projeto, ele pede um pouco a mais do que ele pediu
 no projeto ele pedi coisas a mais, ele vai pedir coisas como visual, app de raças de cachorro, pegar o modelo de aula
 
+conteudo da aula é os segredos do Flavio
+
+// StatefulWidget
+//create
+//
+//State<Class-StatefulWidget>
+//build
+
+como construir os apps, com elementos visuais MaterialApp dentro dele o Scaffold
+o Scaffold é utilizado para organizar as coisas
+
+o ListView lembra o Column, sendo o elemento para empilhar os elementos 
+
+Column > não conseguimos fazer associação de dados, com cargas automaticas ou dinamicas de dados.
+
+ListView > pode ser dinamica 
+children é uma coleção de obj
+o ListView ja tem o Scroll automatico
+
+digitar stf cria o ful 
+quando clicamos no botao do flutter conseguimos saber a composição dos widgets
+
+new ListTile(
+          leading: null,
+          trailing: null,
+          title: null,
+          subtitle: null,
+        )
+
+todos os parametros que passamos são do constructor
+
+subtitle: LinearProgressIndicator(
+            backgroundColor: Colors.redAccent,
+            valueColor:
+                AlwaysStoppedAnimation(Colors.greenAccent), //cor preenchida
+            value: 0.25, //quanto que a barra progrediu
+          ),
+
+para lembrar: podemos instanciar um obj, sem guardar em uma variavel, e no flutter não precisamos do new
 ------------------------------------------------------
+A07-050521 Estrutura do Projeto, List View Builder
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
