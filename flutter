@@ -734,7 +734,7 @@ podemos selecionar o Text e fazer o refactor, temos 3 tipos de extração, e ext
 
 
 ------------------------------------------------------
-A04-030521
+A05-040521
 
 o hotreload funciona quando eu salvo meu arquivo 
 
@@ -923,6 +923,11 @@ o problema que podemos ter com estado, é executar o metodo build varias vezes, 
 
 
 ------------------------------------------------------
+A06-040521 LISTVIEW VSCODE
+
+nac projeto, ele pede um pouco a mais do que ele pediu
+no projeto ele pedi coisas a mais, ele vai pedir coisas como visual, app de raças de cachorro, pegar o modelo de aula
+
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
