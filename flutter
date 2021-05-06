@@ -1204,7 +1204,53 @@ print(3.toString());
 print(3.toString());
 }
 
- 
+Para implementarmos o await precisamos de uma função assincrona, o bloco de cod. 
+O await só pula pra proxima linha de exec quando minha thread terminar
+
+print1() async {
+  await Future.delayed(Duration(seconds: 5), () {
+    print('auditoria');
+  }); //linha assincrona
+  print(11.toString()); //para exec a linha 13 preciso, da exec da linha 10. Toda vez que eu tenho um metodo que é async o meu retorno vai precisar ser uma future.Quem chamar o  print1 tem o poder de gerenciar em que pé esta a exec 
+
+O metodo print1 se tornando async, exec em parelo, enquanto da seguimento nas proximas linhas de exec
+
+
+void main(List<String> arguments) {
+  print1();
+  print2();
+  print3();
+}
+
+Future<void> print1() async {
+  await Future.delayed(Duration(seconds: 5), () {
+    print('auditoria');
+  }); //linha assincrona
+  print(11.toString()); //para exec a linha 13 preciso, da exec da linha 10
+
+Models -> classe onde temos a entidade do negocio, atributos e geters and seters
+
+Repository -> Onde guardamos nossos dados, o metodo findAll(), busca todos os objetos e guarda os obj da classe Models(Entity), o metodo findById() busca o objeto especifico pelo id. E temos os metodo insert(), update() e delete()
+
+flutter clean // remove os compilados
+flutter pub get // traz os pkgs do projeto, e as lib que estão quebrando 
+
+primeira coisa quando baixamos um arquivo de fora fazemos o flutter pub get 
+
+quando queremos enviar o projeto para alguem, limpamos ele, então flutter clean
+
+class Database {
+  bool created = false;
+
+  Future<bool> createDatabase() async {
+    await Future.delayed(Duration(seconds: 5));
+    this.created = true; // fake
+    return created;
+  }
+}
+metodo assicrono acima
+
+58:00
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
