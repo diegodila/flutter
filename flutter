@@ -1161,6 +1161,50 @@ class CursoRepository {
 // No java não temos duas classes no mesmo arquivo
 
 ------------------------------------------------------
+A08-060521 Future, Async e Await, Trabalhando com dados assícronos, Future builder
+
+async – adicionado antes do corpo da função definirá
+que o comportamento será assíncrono.
+final da declaração da function, que pode funcionar de forma async 
+
+
+await – pode ser chamado apenas em funções
+assíncronas, e determina que a próxima linha de código
+será executada após o término da instrução await.
+quando eu vou chamar uma function que é async para que eu pare a exec, para que a proxima linha seja exec 
+
+Future – recurso para tratamento de tarefas de longa
+duração funcione de forma assíncrona.
+ajuda a tratar tarefas async longas, quando demora, para saber se acabou ou se esta em exec
+
+o que é sincrono, exec uma coisa por vez em sequencia
+
+o que é async, eu mado exec algo e eu não paro o prox linha em exec, e em sequencia ja exec a prox linha. Eu não dependo do result. Exec a primeira linha e exec a segunda sem precisar da resposta da primeira, ele pode ter terminado, pode estar em exec. Não travamos a thread
+
+quando precisamos de coisas async como conseguimos controlar para não perder a exec 
+
+future.delayded é um atraso(como se fosse um contador) 
+
+Sincrona 
+print1() {
+void main() {
+print(1.toString());print1();
+print(1.toString());print2();
+print(1.toString());print3();
+}
+}
+print2() {
+print(2.toString());
+print(2.toString());
+print(2.toString());
+}
+print3() {
+print(3.toString());
+print(3.toString());
+print(3.toString());
+}
+
+ 
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
