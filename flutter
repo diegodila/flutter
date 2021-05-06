@@ -968,7 +968,149 @@ subtitle: LinearProgressIndicator(
 
 para lembrar: podemos instanciar um obj, sem guardar em uma variavel, e no flutter não precisamos do new
 ------------------------------------------------------
-A07-050521 Estrutura do Projeto, List View Builder
+A07-050521 Estrutura do Projeto, ListView Builder
+
+components - elementos visuais pequenos que podem ser restilizados, botao(que recebe o mesmo padrão pro app inteiro)
+
+screens - pode englobar junto com os components (screen são as telas, telas inteiras)
+models - classes que representam os dados do projeto, tambem chamados de entidades 
+
+Services - confusão com repository e services(nomeclatura), flutter vamos configurar as chamadas a serviços externos, chamadas as webservices e apps
+
+repository - Dao(que fazia a interação com bd, no java) - não acessar um banco dados direto do app, pode gerar problemas - dificilmente ele vai acessar diretamente um banco de dados, ele sempre vai acessar um service, webservice ou apis. Sqlite é um banco em memória (banco local, só daquele dispositivo, não temos informação compartilhada)
+
+Themes - o padrão visual do app, (aplicativo de gps tema pro dia e pra noite)
+
+ListView Builder
+ListView.Builder() // constructor nomeado, usado para exibir uma lista com elementos infinito ou dinamicos
+
+nome de arquivo no dart é tudo em minusculo
+
+class CursoRepository {
+  List<CursoModel> findAll() {
+    return null;
+  } //o findAll é nosso select All, ele retorna todos os cursos então ele retorna uma Lista de objetos,uma lista de CursoModel
+
+  void findById(int id) {}
+
+  void insert() {}
+
+  void update() {}
+
+  void delete() {}
+}
+
+get and set são não classe model
+ data axis object  DAO
+fazemos select, insert, update e delete no bd
+classe Repository tem metodos que fazem interação como o db
+o findAll é nosso select All
+ o findById, queremos o detalhes passamos o Id e temos as informações de fato
+
+material traz mais opções, cuppertino traz coisas próprias do android
+
+import 'package:app07/models/curso_model.dart';
+
+class CursoRepository {
+  List<CursoModel> findAll() {
+    var lista = [
+      new CursoModel(
+          id: 1,
+          nome: 'Java',
+          nivel: 'básico',
+          percentualConclusao: 99,
+          preco: 1000),
+      new CursoModel(
+          id: 2,
+          nome: 'JEE',
+          nivel: 'avançado',
+          percentualConclusao: 99,
+          preco: 1000),
+    ];
+    return lista;
+  } //o findAll é nosso select All, ele retorna todos os cursos então ele retorna uma Lista de objetos,uma lista de CursoModel
+
+  CursoModel findById(int id) {
+    return null;
+  } // temos os que como resposta da funcão? como retorno?
+
+  void insert(
+      CursoModel
+          cursoModel) {} //o que precisamos enviar? então temos que passar algo como parametro
+
+  void update(CursoModel cursoModel) {}
+
+  void
+      delete() {} //aqui não temos o trabalho de ter ou enviar um obj para deleter, então enviamos somente o id
+}
+
+get and set são não classe model
+ data axis object  DAO
+fazemos select, insert, update e delete no bd
+classe Repository tem metodos que fazem interação como o db
+o findAll é nosso select All
+ o findById, queremos o detalhes passamos o Id e temos as informações de fato
+O visual studio code identifica a classe e faz o import sozinho
+ No java não temos duas classes no mesmo arquivo
+
+ // listTileCurso(cursoModel),
+          // listTileCurso(cursoModel),
+          // listTileCurso(cursoModel),
+          listTileCurso(
+            CursoModel(
+                id: 2,
+                nome: 'Gabriela',
+                percentualConclusao: 0.66,
+                preco: 1000,
+                nivel: 'expert'),
+          ),
+          listTileCurso(
+            CursoModel(
+                id: 2,
+                nome: 'BROKAAOOOOOOOO',
+                percentualConclusao: 0.99,
+                preco: 1000,
+                nivel: 'expert'),
+
+
+/*
+ <table> 
+   <% for (int i = 0; i < listaCursos.leght; i++){
+     CursoModel cmodel = listaCursos[i];
+     %>
+     <tr>
+      <td><%= cmodel.nome %></td>
+      <td><% cmodel.preco %></td>
+      </tr>
+    <% } %>
+  <table>
+
+
+
+  body: ListView(
+        children: [
+          for (int i = 0; i < listaCursos.leght; i++){
+            CursoModel cmodel = listaCursos[i];
+            listTileCurso(cmodel);
+     }
+        ],
+      )
+
+*/
+
+quando estamos no html, a renderização vai acontecendo linha a linha 
+nesse modelo do ListView acima não funciona com o for dentro dele, quando executa o flutter entende que precisa ter um elemento visual criado, o ListView, ele não vai esperar um laço para ir criando um ListView, e depois renderizar o ListView, já deve estar pronto
+
+por isso usamos o elemento ListView Builder, vai permitir eu passar uma lista para dentro ListView, ele automaticamente vai fazer essa interação, renderizando a lista
+
+criação do ListView.builder
+ListView.builder(
+        itemBuilder: null,
+        itemCount: null, 
+      ),
+
+itemCount passamos o tamanho da lista
+itemBuilder recebe uma função, podendo ser anonima, ele executa a função como se fosse um for
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
