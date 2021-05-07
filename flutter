@@ -1251,6 +1251,59 @@ class Database {
 metodo assicrono acima
 
 58:00
+
+é comum ter o sufixo no metodo chamado findAllAsync() 
+quando colocamos async, falamos que é metodo é async, temos que colocar o tipo de retorno correto, não podemos voltar uma lista. No dart voltamos um Future
+
+class _CursosScreenState extends State<CursosScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(64, 75, 96, .9),
+        title: Text("Cursos"),
+      ),
+      body: FutureBuilder(
+        future: null,
+        builder: (context, snapshot) {}
+
+o parametro future é qual chamada assincrona que ele vai gerenciar
+
+future : vamos chamar o repositorio e chamar o metodo findAllAsync
+
+o parametro builder, é uma função que constroi o elemento visual naquele ciclo de vida async
+
+
+body: FutureBuilder(
+        future: CursoRepository().findAllAsync(),
+        builder: (context, snapshot) {
+          return null;
+        },
+      ),
+
+future: gerencia pra mim a chamada async
+builder:contexto da app, snapshot ->
+
+o snapshot é segredo, ele resolve as coisas com relação as chamadas assincronas 
+o snapshot consegue saber em que estado a future está
+
+o snapshot consegue saber se a future esta em exec
+snapshot.connectionState == connectionState.waiting
+
+o snapshot.data consegue capturar o retorno da chamada, dentro dele fica o retorno da future 
+codigo snapshot abaixo
+
+FutureBuilder(
+        future: CursoRepository().findAllAsync(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Text('Loading...');
+          } else {
+            return buildListView(snapshot.data);
+          }
+        },
+      )
+
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------

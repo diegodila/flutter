@@ -8,23 +8,32 @@ class CursosScreen extends StatefulWidget {
 }
 
 class _CursosScreenState extends State<CursosScreen> {
-  List<CursoModel> listaCursos;
-
   @override
   Widget build(BuildContext context) {
-    listaCursos = CursoRepository().findAll();
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(64, 75, 96, .9),
         title: Text("Cursos"),
       ),
-      body: ListView.builder(
-        itemCount: listaCursos.length,
-        itemBuilder: (BuildContext ctx, int index) {
-          return cardCurso(listaCursos[index]);
+      body: FutureBuilder(
+        future: CursoRepository().findAllAsync(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Text('Loading...');
+          } else {
+            return buildListView(snapshot.data);
+          }
         },
       ),
+    );
+  }
+
+  ListView buildListView(List<CursoModel> listaCursos) {
+    return ListView.builder(
+      itemCount: listaCursos.length,
+      itemBuilder: (BuildContext ctx, int index) {
+        return cardCurso(listaCursos[index]);
+      },
     );
   }
 
