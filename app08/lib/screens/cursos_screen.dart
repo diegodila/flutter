@@ -19,7 +19,9 @@ class _CursosScreenState extends State<CursosScreen> {
         future: CursoRepository().findAllAsync(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Text('Loading...');
+            return Center(
+              child: CircularProgressIndicator(),
+            );
           } else {
             return buildListView(snapshot.data);
           }
