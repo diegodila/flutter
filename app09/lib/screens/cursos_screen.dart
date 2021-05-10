@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:app09/models/curso_model.dart';
 import 'package:app09/repository/curso_repository.dart';
 
+import '../models/curso_model.dart';
+import 'cursos_detalhes_screen.dart';
+
 class CursosScreen extends StatefulWidget {
   @override
   _CursosScreenState createState() => _CursosScreenState();
@@ -25,6 +28,25 @@ class _CursosScreenState extends State<CursosScreen> {
               child: CircularProgressIndicator(),
             );
           }
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.amberAccent,
+        child: Icon(Icons.arrow_forward),
+        onPressed: () {
+          var cursoModel = CursoModel(
+            id: 77,
+            nome: 'Curso 77',
+            preco: 777,
+            conteudo: 'Conte 222',
+            percentualConclusao: 70,
+            nivel: 'Basico',
+          );
+          Navigator.pushNamed(
+            context,
+            '/curso_detalhes',
+            arguments: cursoModel,
+          );
         },
       ),
     );
@@ -105,8 +127,15 @@ class _CursosScreenState extends State<CursosScreen> {
             color: Colors.white,
             size: 30.0,
           ),
-          onTap: () {
-            print('Navegar');
+          onTap: () async {
+            var messageReturn = await Navigator.pushNamed(
+              context,
+              '/curso_detalhes',
+              arguments: curso,
+            );
+            print(messageReturn);
+            // print(curso.nome);
+            //Navigator.push(...,arguments:curso);
           },
         ),
       ),

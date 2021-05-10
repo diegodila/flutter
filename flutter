@@ -1305,6 +1305,101 @@ FutureBuilder(
       )
 
 ------------------------------------------------------
+A09-090521
+
+padrao de nav é o push(empilhar) e pop
+
+toda vez que eu quero abrir uma tela nova, eu uso o push em cima da anterior, quando eu quero retirar é o pop, que tira o elemento da pilha
+
+no push eu preciso falar qual tela eu quero abrir 
+no pop não porque eu sempre tiro a tela corrente 
+
+comando de pop é mais fácil
+
+Navigator, essa classe provem o push e um pop
+
+Navigator
+
+floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.amberAccent,
+        child: Icon(Icons.arrow_forward),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return CursosDetalhesScreen();
+              },
+            ),
+          );
+        },
+      )
+  
+no clique do botao passamos o Navigator.push() passando o context e MaterialPageRoute()
+fazemos o build do contexto passando uma função anonima da tela como retorno
+
+no pop é mais fácil
+
+
+floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.amberAccent,
+        child: Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+
+
+namedRoutes é um pouco mais limpa e mais fácil de fazer a navegação
+mais estruturada criando rotas de navegação, e flutter vai se encarregar de fazer o depara, 
+
+
+MaterialApp(
+      initialRoute: '/home',
+      routes: {
+        ',home': (context) => CursosScreen(),
+        '/curso_detalhes': (context) => CursosScreen(),
+        '/cursos_lista': (context) => CursosScreen(),
+
+initialRoute é navegação principal
+routes é onde eu crio minhas rotas, criamos ela com a string e função que eu quero executar
+
+quando definimos as rotas ficam dessa forma chamar o push
+
+floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.amberAccent,
+        child: Icon(Icons.arrow_forward),
+        onPressed: () {
+          Navigator.pushNamed(context, '/curso_detalhes');
+        },
+      )
+
+na web a navegação é stateless, ela executa e fica gravada
+no app eu tenho as coisas em memoria, eu não preciso passar um codigo só 
+pegar o id e buscar coisas relacionadas ao id
+
+conseguimos passar um parametro de uma tela pra outra
+precisamo passar pra tela 2 o argumento do curso
+
+floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.amberAccent,
+        child: Icon(Icons.arrow_forward),
+        onPressed: () {
+          var cursoModel = CursoModel(
+            id: 77,
+            nome: 'Curso 77',
+            preco: 777,
+          );
+          Navigator.pushNamed(
+            context,
+            '/curso_detalhes',
+            arguments: cursoModel,
+          );
+  
+  passando um argumento para a segunda tela, esse argumento retorna um obj, criamos um obj acima, estaticamente. Agora precisamos capturar esse argumento na 2 tela
+
+  nos temos a oportunidade de passar um argumento na volta, no pop
+  
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------

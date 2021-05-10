@@ -1,13 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../models/curso_model.dart';
+
 class CursosDetalhesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    CursoModel cursoModel = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(64, 75, 96, .9),
-        title: Text("Nome do Curso"),
+        title: Text(cursoModel.nome),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -15,26 +19,50 @@ class CursosDetalhesScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             labelValue('ID'),
-            fieldValue('#1'),
+            fieldValue(cursoModel.id.toString()),
             espaco(),
             labelValue('Nível'),
-            fieldValue('Básico'),
+            fieldValue(cursoModel.nivel),
             espaco(),
             labelValue('Preço'),
-            fieldValue('999'),
+            fieldValue(cursoModel.preco.toString()),
             espaco(),
             labelValue('% Conclusão'),
-            fieldValue('20%'),
+            fieldValue(cursoModel.percentualConclusao.toString()),
             espaco(),
             labelValue('Conteúdo'),
-            fieldValue('Lorem ipsum dolor sit amet. Commodo blandit. Morbi commodo sed ante eu eleifend. Aliquam erat volutpat. Nam ullamcorper diam lectus, a dictum tellus pellentesque a. Nam velit ligula, porttitor ac dictum nec, commodo quis ante. Pellentesque luctus libero nulla, eu tristique erat iaculis eu.'),
+            fieldValue(cursoModel.conteudo),
+            espaco(),
+            Center(
+              child: ElevatedButton(
+                child: Text('Tenho interesse!'),
+                style: ElevatedButton.styleFrom(primary: Colors.pinkAccent),
+                onPressed: () {
+                  var message =
+                      'Interesse no curso ${cursoModel.nome} registrado com sucesso';
+                  Navigator.pop(
+                    context,
+                    message,
+                  );
+                },
+              ),
+            ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.amberAccent,
+        child: Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
     );
   }
 
-  SizedBox espaco() => SizedBox(height: 16,);
+  SizedBox espaco() => SizedBox(
+        height: 16,
+      );
 
   Widget labelValue(String _label) {
     return Text(

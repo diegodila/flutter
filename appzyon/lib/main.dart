@@ -1,4 +1,5 @@
-import 'package:appzyon/screens/properties_screen.dart';
+import 'package:appzyon/screens/houses_description_screen.dart';
+import 'package:appzyon/screens/houses_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,11 +11,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      initialRoute: '/home',
+      routes: {
+        '/home': (context) => HousesScreen(),
+        '/house_description': (context) => HousesDescriptionScreen(),
+        '/house_lists': (context) => HousesScreen(),
+      },
+      title: 'Zyon App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: PropertiesScreen(), //import da tela que estamos construindo
+      home: HousesScreen(), //import da tela que estamos construindo
     );
   }
 }

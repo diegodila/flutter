@@ -18,8 +18,7 @@ class CursoRepository {
           nivel: 'Básico',
           percentualConclusao: 0.7,
           preco: 599,
-          conteudo:
-              'Lorem ipsum dolor sit amet. Commodo blandit. Morbi commodo sed ante eu eleifend. Aliquam erat volutpat. Nam ullamcorper diam lectus, a dictum tellus pellentesque a. Nam velit ligula, porttitor ac dictum nec, commodo quis ante. Pellentesque luctus libero nulla, eu tristique erat iaculis eu.',
+          conteudo: 'Java',
         ),
       );
       cursos.add(
