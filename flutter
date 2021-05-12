@@ -240,13 +240,11 @@ CLASSES
 
 class Point {
   int x, y;
-
-  
-//   // Sintaxe para setar x e y
-//   Point(this.x , this.y);
-//     this.x = x;
-//     this.y = y;
-// }
+    Sintaxe para setar x e y
+    Point(this.x , this.y);
+       this.x = x;
+       this.y = y;
+ }
  // Sintaxe para setar x e y e tambem podemos passar parametros opcionais
   Point({this.x , this.y});
   
@@ -1401,6 +1399,9 @@ floatingActionButton: FloatingActionButton(
   nos temos a oportunidade de passar um argumento na volta, no pop
   
 ------------------------------------------------------
+A10 120521
+
+
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
