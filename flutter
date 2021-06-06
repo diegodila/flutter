@@ -1408,6 +1408,30 @@ A11 190521
 
 form 
 ------------------------------------------------------
+A12 060621
+
+floatingActionButton 
+
+decoration: o estilo que vamos colocar nele
+
+keyboardType: tipo de teclado que queremos que o usuario start, alfa numerico, telefone, numerico
+
+validator: função que vai exec para validar o textformfield, 
+
+onsaved: cod que quando quisermos salvar o form
+
+validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Digite o nome do curso';
+                      } else if (value.length < 2) {
+                        return 'Nome do curso inválido';
+                      }
+                      return null;
+                    },
+
+quando retonarmos o nulo no validator dizemos que o campo está validado 
+
+
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
