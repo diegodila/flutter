@@ -1,3 +1,4 @@
+import 'package:am_flutter_final/screen/municipios_detalhes.dart';
 import 'package:flutter/material.dart';
 import 'package:am_flutter_final/screen/municipios_screen.dart';
 
@@ -12,12 +13,13 @@ class MyApp extends StatelessWidget {
       initialRoute: '/home',
       routes: {
         '/home': (context) => MunicipiosScreen(),
-        '/am_flutter_final': (context) => MunicipiosScreen(),
+        '/details': (context) => MunicipiosDetalhes(),
       },
       title: 'AM App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      home: MunicipiosScreen(),
     );
   }
 }

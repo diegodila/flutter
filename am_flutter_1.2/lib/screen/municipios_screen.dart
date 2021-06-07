@@ -5,10 +5,10 @@ import 'package:url_launcher/url_launcher.dart';
 
 class MunicipiosScreen extends StatefulWidget {
   @override
-  _MunicipiosScreenState createState() => _MunicipiosScreenState();
+  MunicipiosScreenState createState() => MunicipiosScreenState();
 }
 
-class _MunicipiosScreenState extends State<MunicipiosScreen> {
+class MunicipiosScreenState extends State<MunicipiosScreen> {
   launchURL(String url) async {
     if (await canLaunch(url)) {
       await launch(url, forceWebView: true);
@@ -20,10 +20,7 @@ class _MunicipiosScreenState extends State<MunicipiosScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text("AM"),
-      ),
+      appBar: buildAppBar(),
       body: FutureBuilder<List<MunicipioModel>>(
         future: MunicipioRepository().findAllAsync(),
         builder: (context, snapshot) {
@@ -36,6 +33,13 @@ class _MunicipiosScreenState extends State<MunicipiosScreen> {
           }
         },
       ),
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      backgroundColor: Colors.black,
+      title: Text("AM"),
     );
   }
 
@@ -97,10 +101,15 @@ class _MunicipiosScreenState extends State<MunicipiosScreen> {
             color: Colors.white,
             size: 30.0,
           ),
-          onTap: () {
-            var url = municipio.link;
-            print(url);
-            launchURL(url);
+          onTap: () async {
+            var messageReturn = await Navigator.pushNamed(
+              context,
+              '/details',
+              arguments: municipio,
+            );
+            print(messageReturn);
+            // print(house.nome);
+            //Navigator.push(...,arguments:house);
           },
         ),
       ),
