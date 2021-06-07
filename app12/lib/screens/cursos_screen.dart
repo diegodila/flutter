@@ -133,8 +133,7 @@ class _CursosScreenState extends State<CursosScreen> {
               '/cursos_detalhes',
               arguments: curso,
             );
-
-            print('Mensagem de retorno: ${mensagemRetorno} ');
+            print('Mensagem de retorno: ${mensagemRetorno}');
           },
         ),
       ),
