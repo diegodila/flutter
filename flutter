@@ -1429,7 +1429,23 @@ validator: (value) {
                       return null;
                     },
 
-quando retonarmos o nulo no validator dizemos que o campo está validado 
+quando retonarmos o nulo no validator dizemos que o campo está validado
+
+
+listaNiveis.map(
+                      (valorItem) {
+                        return DropdownMenuItem(
+                          child: Text(valorItem),
+                          value: valorItem,
+                        );
+                      },
+                    ).toList(),
+
+o tolist pega o retorno todo e faz uma lista dele
+poderiamos ter um map de obj
+no child podemriamos obj.nome 
+no value poderiamos ter obj.id
+o value é o por tras dos panos, onde se tem o id 
 
 
 ------------------------------------------------------

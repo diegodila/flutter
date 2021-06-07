@@ -11,6 +11,9 @@ class _CursoNovoScreenState extends State<CursoNovoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var listaNiveis = ['basico', 'intermediario', 'avançado'];
+    //var listaniveis = nivelRepository().findAll();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
@@ -39,7 +42,39 @@ class _CursoNovoScreenState extends State<CursoNovoScreen> {
                       }
                       return null;
                     },
-                    onSaved: null,
+                    onSaved: (newValue) {
+                      print(newValue);
+                    },
+                    onChanged: (value) {
+                      print(value);
+                    },
+                  ),
+                  DropdownButtonFormField(
+                    decoration: new InputDecoration(
+                      alignLabelWithHint: true,
+                      icon: Icon(Icons.live_help_outlined),
+                      hintText: 'Selecione o nível',
+                      labelText: 'Nivel',
+                    ),
+                    items: listaNiveis.map(
+                      (valorItem) {
+                        return DropdownMenuItem(
+                          child: Text(valorItem),
+                          value: valorItem,
+                        );
+                      },
+                    ).toList(),
+                    validator: (value) {
+                      if ((value == null)) {
+                        return 'Selecione o nível do curso!';
+                      }
+                    },
+                    onChanged: (value) {
+                      print('trocando');
+                    },
+                    onSaved: (newValue) {
+                      print("salvando");
+                    },
                   ),
                 ],
               ),
