@@ -273,6 +273,20 @@ class Pessoa {
 ------------------------------------------------------
 A03 StatelessWidget Widget MaterialApp Demais Widgets
 
+
+Como adicionar a linha para separar o
+título das demais informações?
+
+Widget Divider
+child: Column(
+  children: <Widget>[
+    ListTile( ... ), // ListTile
+    Divider(),
+    ListTile( ... ), // ListTile
+  ], // children
+), // Column
+
+
 StatelessWidget widget sem estado (conteudo dele não sofre alteração) sem estado, stateless O
 stateful (muda o estado)
 stateless tem movimento porem não conseguimos carregar ele (load)
