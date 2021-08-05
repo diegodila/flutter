@@ -37,7 +37,7 @@ custo é mais barato (1 time só)
 mas mesmo assim empresar preferem ter 2 times, em startup geralmente vai para uma solução hibrida
 
 ------------------------------------------------------
-A02-020521
+1A02-020521
 no dart temos um main por projeto
 java o main é uma metodo estatico e recebe parametro 
 no dart nos metodos nao precisamos declarar o retorno
@@ -271,7 +271,7 @@ class Pessoa {
   print('executou o fromJson de Pessoa');
 }
 ------------------------------------------------------
-A03 StatelessWidget Widget MaterialApp Demais Widgets
+1A03 StatelessWidget Widget MaterialApp Demais Widgets
 
 
 Como adicionar a linha para separar o
@@ -597,7 +597,7 @@ class CardRestaurant extends StatelessWidget {
     );
   }
 ------------------------------------------------------
-A04-030521
+1A04-030521
 
 MaterialApp 
 Scaffold // nao tem visual 
@@ -746,7 +746,7 @@ podemos selecionar o Text e fazer o refactor, temos 3 tipos de extração, e ext
 
 
 ------------------------------------------------------
-A05-040521
+1A05-040521
 
 o hotreload funciona quando eu salvo meu arquivo 
 
@@ -935,7 +935,7 @@ o problema que podemos ter com estado, é executar o metodo build varias vezes, 
 
 
 ------------------------------------------------------
-A06-040521 LISTVIEW VSCODE
+1A06-040521 LISTVIEW VSCODE
 
 nac projeto, ele pede um pouco a mais do que ele pediu
 no projeto ele pedi coisas a mais, ele vai pedir coisas como visual, app de raças de cachorro, pegar o modelo de aula
@@ -980,7 +980,7 @@ subtitle: LinearProgressIndicator(
 
 para lembrar: podemos instanciar um obj, sem guardar em uma variavel, e no flutter não precisamos do new
 ------------------------------------------------------
-A07-050521 Estrutura do Projeto, ListView Builder
+1A07-050521 Estrutura do Projeto, ListView Builder
 
 components - elementos visuais pequenos que podem ser restilizados, botao(que recebe o mesmo padrão pro app inteiro)
 
@@ -1173,7 +1173,7 @@ class CursoRepository {
 // No java não temos duas classes no mesmo arquivo
 
 ------------------------------------------------------
-A08-060521 Future, Async e Await, Trabalhando com dados assícronos, Future builder
+1A08-060521 Future, Async e Await, Trabalhando com dados assícronos, Future builder
 
 async – adicionado antes do corpo da função definirá
 que o comportamento será assíncrono.
@@ -1317,7 +1317,7 @@ FutureBuilder(
       )
 
 ------------------------------------------------------
-A09-090521
+1A09-090521
 
 padrao de nav é o push(empilhar) e pop
 
@@ -1413,16 +1413,16 @@ floatingActionButton: FloatingActionButton(
   nos temos a oportunidade de passar um argumento na volta, no pop
   
 ------------------------------------------------------
-A10 120521
+1A10 120521
 temos que tomar cuidado com a imagem que levamos
 tanto pelo tamanho que vai ficar o app 
 
 ------------------------------------------------------
-A11 190521
+1A11 190521
 
 form 
 ------------------------------------------------------
-A12 060621
+1A12 060621
 
 floatingActionButton 
 
@@ -1463,6 +1463,35 @@ o value é o por tras dos panos, onde se tem o id
 
 
 ------------------------------------------------------
+2A13 040821
+conceito de singleton
+
+banco de dados requisito um monte de conexoes, e o banco gargala
+mobile não temos esse problema, pq eu não tenho 2 pessoas acessando o mesmo aplicativo
+
+sqlite é feito em c, é usado como um cache, ele não é um servidor de db 
+
+dev_dependencies: 
+  codigos que são de dev para gerar o compilador
+
+
+sqlite ele faz transf de json, ele trafega json
+parse de json para um componente do dartd
+
+para trafegar dados
+montamos um json
+e temos uma ferramenta quicktype, que transforma os obj em json e vice versa
+
+app.quicktype.io (transforma os json em obj)
+
+{
+"id": 1,
+"nome": "Nome",
+"nivel": "Avançado",
+"percentualConclusao": 1.099,
+"preco": 1,
+"Conteudo" : "Texto"
+}
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
