@@ -1493,6 +1493,9 @@ app.quicktype.io (transforma os json em obj)
 "Conteudo" : "Texto"
 }
 ------------------------------------------------------
+#config flutter 
+sudo gpasswd -a diegodila flutterusers
+newgrp flutterusers
 ------------------------------------------------------
 ------------------------------------------------------
 ------------------------------------------------------
