@@ -1,0 +1,12 @@
+1.class of stateless 
+2. statefulwidget stf com listview dentro 
+3 construir card como função 
+4 dentro do card um container e um list tile
+
+visualDensity: VisualDensity.adaptivePlatformDensity, propriedade do materialapp
+na propriedade appbar do scaffold temos que usar uma classe widget
+
+propriedade elevation no widget card elevation: 12.0,
+propriedade margin no widget card usando a classe EdgeInsets.symmetric(horizontal: 12,vertical: 6,),
+
+propriedade decoration na container usando a classe BoxDecoration(color: Color.fromRGBO(64, 75, 96, 0.5),),
