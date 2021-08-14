@@ -1017,7 +1017,7 @@ get and set são não classe model
 fazemos select, insert, update e delete no bd
 classe Repository tem metodos que fazem interação como o db
 o findAll é nosso select All
- o findById, queremos o detalhes passamos o Id e temos as informações de fato
+o findById, queremos o detalhes passamos o Id e temos as informações de fato
 
 material traz mais opções, cuppertino traz coisas próprias do android
 
@@ -1061,7 +1061,7 @@ get and set são não classe model
 fazemos select, insert, update e delete no bd
 classe Repository tem metodos que fazem interação como o db
 o findAll é nosso select All
- o findById, queremos o detalhes passamos o Id e temos as informações de fato
+o findById, queremos o detalhes passamos o Id e temos as informações de fato
 O visual studio code identifica a classe e faz o import sozinho
  No java não temos duas classes no mesmo arquivo
 
@@ -1168,10 +1168,20 @@ class CursoRepository {
 //fazemos select, insert, update e delete no bd
 //classe Repository tem metodos que fazem interação como o db
 //o findAll é nosso select All
-// o findById, queremos o detalhes passamos o Id e temos as informações de fato
+//o findById, queremos o detalhes passamos o Id e temos as informações de fato
 //O visual studio code identifica a classe e faz o import sozinho
 // No java não temos duas classes no mesmo arquivo
 
+dificilmente vamos ver o app acessando o banco de dados
+
+services é chamada a serviços externos
+Scaffold é o padrao pra iniciar um app, para ter a barra de titulos, pra ter o corpo
+
+Listview é para ter uma lista dentro do app.
+o listview deixa fixado, o constructor nomeado deixa isso dinamico
+
+o itemCount é bem simples passamos o tamanho da lista retornado pelo repository no findAll(listAll) readAll
+o itemBuilder executa uma função anonima que retorna um Widget como se fosse o for
 ------------------------------------------------------
 1A08-060521 Future, Async e Await, Trabalhando com dados assícronos, Future builder
 
