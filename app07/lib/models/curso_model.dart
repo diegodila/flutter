@@ -1,10 +1,10 @@
 class CursoModel {
-  int id;
-  String nome;
-  String nivel;
-  double percentualConclusao;
-  int preco;
-  String conteudo;
+  int? id;
+  String? nome;
+  String? nivel;
+  double? percentualConclusao;
+  int? preco;
+  String? conteudo;
 
   CursoModel({
     this.id,

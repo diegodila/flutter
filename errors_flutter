@@ -4,9 +4,16 @@
 4 dentro do card um container e um list tile
 
 visualDensity: VisualDensity.adaptivePlatformDensity, propriedade do materialapp
-na propriedade appbar do scaffold temos que usar uma classe widget
+na propriedade appbar do scaffold temos que usar uma classe widget AppBar
 
-propriedade elevation no widget card elevation: 12.0,
+propriedade elevation no widget card, colocamos elevation: 12.0,
 propriedade margin no widget card usando a classe EdgeInsets.symmetric(horizontal: 12,vertical: 6,),
 
-propriedade decoration na container usando a classe BoxDecoration(color: Color.fromRGBO(64, 75, 96, 0.5),),
+propriedade decoration no widget container usando a classe BoxDecoration(color: Color.fromRGBO(64, 75, 96, 0.5),),
+
+
+card > container > listtile {leading, title, subtitle, trainling, ontap}
+
+o retorno do repository é o model ou a entidade, ela retorna uma lista da entidade no findAll
+as regras de null na entidade mudaram, precisamos definir o tipo nullabe 
+no listview builder,o itemcount é o tamanho da lista o itemBuilder passamos uma função anonima que recebe o context o index, declaramos uma variavel do tipo List<nome da entidade> e depois instanciamos um objeto do repository chamando a função de ler o nosso repository com as entidades la dentro  List<model,entity> entidade = repository.findAll(); e depois retornamos na função anonima a entidade[index] e o widget que ira construir essa lista

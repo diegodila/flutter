@@ -15,7 +15,7 @@ class _CursosScreenState extends State<CursosScreen> {
   //   preco: 1000,
   //   nivel: 'basico',
   // );
-  List<CursoModel> listCursos;
+  late List<CursoModel> listCursos;
 
   @override
   Widget build(BuildContext context) {
