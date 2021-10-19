@@ -1,3 +1,4 @@
+import 'package:am_flutter_final/service/cidade_service.dart';
 import 'package:flutter/material.dart';
 import 'package:am_flutter_final/models/municipio_model.dart';
 import 'package:am_flutter_final/repository/municipio_repository.dart';
@@ -22,7 +23,7 @@ class MunicipiosScreenState extends State<MunicipiosScreen> {
     return Scaffold(
       appBar: buildAppBar(),
       body: FutureBuilder<List<MunicipioModel>>(
-        future: MunicipioRepository().findAllAsync(),
+        future: CidadeService().findAll(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return buildListView(snapshot.data);
