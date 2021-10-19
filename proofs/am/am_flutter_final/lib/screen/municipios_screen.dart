@@ -103,12 +103,10 @@ class MunicipiosScreenState extends State<MunicipiosScreen> {
             size: 30.0,
           ),
           onTap: () async {
-            var messageReturn = await Navigator.pushNamed(
-              context,
-              '/details',
-              arguments: municipio,
-            );
-            print(messageReturn);
+            var url = municipio.link;
+            print(url);
+            launchURL(url);
+
             // print(house.nome);
             //Navigator.push(...,arguments:house);
           },
