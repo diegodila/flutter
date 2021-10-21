@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 class MunicipioListViewLoading extends StatelessWidget {
   const MunicipioListViewLoading({
@@ -50,16 +51,22 @@ class MunicipioListViewLoading extends StatelessWidget {
                 ),
               ),
             ),
-            child: Icon(
-              Icons.bookmark_outline_rounded,
-              color: Colors.white,
+            child: Shimmer.fromColors(
+              highlightColor: _highLightColor,
+              baseColor: _baseColor,
+              period: _duration,
+              enabled: false,
+              child: Icon(Icons.new_label_outlined),
             ),
           ),
-          title: Text(
-            "loading",
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+          title: Shimmer.fromColors(
+            highlightColor: _highLightColor,
+            baseColor: _baseColor,
+            period: _duration,
+            child: Container(
+              height: 24,
+              width: 40,
+              color: _highLightColor,
             ),
           ),
           trailing: Icon(
