@@ -35,12 +35,12 @@ class CidadeService {
     return lista;
   }
 
-  Future<int> create(MunicipioModel cursoModel) async {
+  Future<int> create(MunicipioModel municipioModel) async {
     try {
-      cursoModel.id = 0;
+      municipioModel.id = 0;
       Response response = await service.create().post(
             _resource,
-            data: cursoModel.toMap(),
+            data: municipioModel.toMap(),
           );
 
       if (response.statusCode == 201) {
@@ -70,13 +70,13 @@ class CidadeService {
     }
   }
 
-  Future<int> update(MunicipioModel cursoModel) async {
+  Future<int> update(MunicipioModel municipioModel) async {
     try {
-      String endpoint = _resource + "/" + cursoModel.id.toString();
+      String endpoint = _resource + "/" + municipioModel.id.toString();
 
       Response response = await service.create().put(
             endpoint,
-            data: cursoModel.toMap(),
+            data: municipioModel.toMap(),
           );
 
       var retorno = (response.data["id"] is String)
@@ -89,9 +89,9 @@ class CidadeService {
     }
   }
 
-  Future<void> delete(MunicipioModel cursoModel) async {
+  Future<void> delete(MunicipioModel municipioModel) async {
     try {
-      String endpoint = _resource + "/" + cursoModel.id.toString();
+      String endpoint = _resource + "/" + municipioModel.id.toString();
 
       Response response = await service.create().delete(
             endpoint,
