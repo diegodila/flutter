@@ -1,3 +1,4 @@
+import 'package:am_flutter_final/screen/widgets/municipios_loading.dart';
 import 'package:am_flutter_final/service/cidade_service.dart';
 import 'package:flutter/material.dart';
 import 'package:am_flutter_final/models/municipio_model.dart';
@@ -25,12 +26,28 @@ class MunicipiosScreenState extends State<MunicipiosScreen> {
       body: FutureBuilder<List<MunicipioModel>>(
         future: CidadeService().findAll(),
         builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return buildListView(snapshot.data);
-          } else {
+          if (snapshot.hasError) {
+            String erroMessage = snapshot.error.toString();
             return Center(
-              child: CircularProgressIndicator(),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                    'Erro ao carregar a lista de cursos. \n Detalhes: $erroMessage'),
+              ),
             );
+          } else {
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.data.length > 0) {
+                return buildListView(snapshot.data);
+              } else {
+                return Center(
+                  child: Text("Nenhum portal cadastrado!"),
+                );
+              }
+            } else {
+              // Carregando as informações
+              return MunicipioListViewLoading();
+            }
           }
         },
       ),
